@@ -1,0 +1,25 @@
+.formStyle {
+  background-color: rgb(210, 222, 226);
+  width: 300px;
+  height: 100px;
+  text-align: center;
+  border-radius: 1em;
+  padding: 2em;
+}
+
+.submitStyle {
+  margin-top: 1em;
+  align-items: center;
+}
+.outStyle {
+  text-align: center;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
