@@ -4,8 +4,8 @@ export default function App() {
   const [states, setStates] = useState({
     regex: "",
     sentence: "",
-    isIn: false,
-    display: false
+    display: false,
+    matches: [],
   });
   // We want a single eventhandler for first name, and last name input field
 
@@ -22,12 +22,13 @@ export default function App() {
   const testHandler = (event) => {
     event.preventDefault();
     // alert(inputs.regex + " " + inputs.sentence);
-    const reg = new RegExp(states.regex, "i");
-    const val = reg.test(states.sentence);
+    const reg = new RegExp(states.regex, "gi");
+    const matches = states.sentence.match(reg);
+    console.log(matches); 
 
     setStates({
       ...states,
-      isIn: val,
+      matches: [...matches], 
       display: true
     });
 
@@ -73,7 +74,7 @@ export default function App() {
         />
       </form>
       {states.display && (
-        <h1 className={styles.outStyle}>{states.isIn ? "True" : "False"}</h1>
+        <h1 className={styles.outStyle}>{states.matches}</h1>
       )}
     </>
   );
