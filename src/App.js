@@ -5,7 +5,7 @@ export default function App() {
     regex: "",
     sentence: "",
     display: false,
-    matches: [],
+    matches: []
   });
   // We want a single eventhandler for first name, and last name input field
 
@@ -24,11 +24,11 @@ export default function App() {
     // alert(inputs.regex + " " + inputs.sentence);
     const reg = new RegExp(states.regex, "gi");
     const matches = states.sentence.match(reg);
-    console.log(matches); 
+    console.log(matches);
 
     setStates({
       ...states,
-      matches: [...matches], 
+      matches: [...matches],
       display: true
     });
 
@@ -74,7 +74,11 @@ export default function App() {
         />
       </form>
       {states.display && (
-        <h1 className={styles.outStyle}>{states.matches}</h1>
+        <h1 className={styles.outStyle}>
+          {states.matches.map((word) => (
+            <li key={Math.random()}>{word}</li>
+          ))}
+        </h1>
       )}
     </>
   );
